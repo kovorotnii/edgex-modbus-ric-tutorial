@@ -85,6 +85,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
    
   #### Establish interaction between platform and modbus device.
    - Add registration for estabglishing communication to the platform.
+   
    `curl -X POST -d '{                                       
   "name":"modbus-tutorial-example-thenew11",
   "addressable":{
