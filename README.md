@@ -1,7 +1,11 @@
 ## edgex-modbus-ric-tutorial
 
+This tutorial will allow you to establish interaction between Rightech IoT Cloud platform sandbox https://sandbox.rightech.io/auth and EdgeX Foundry Modbus device service.
+
 ### Prerequisites
 
+ - Get acquainted with EdgeX getting-started https://docs.edgexfoundry.org/Ch-GettingStartedUsers.html.
+ 
  - Docker and Docker-compose shoud be installed.
  
  - Customize [configuration.toml](./configuration.toml) and [another.modbus.profile.yml](./another.modbus.profile.yml) according your device.
@@ -15,13 +19,13 @@
 ![Adding slave](./gifs/add-slave-1.gif)
 
 ### Add registers to slave device.
- #### Add a holding register
+  #### Add a holding register
  - We will add a holding register with address 12
  
 ![Adding holding register](./gifs/added-holding-register-2.gif)
 
   #### Add two coils.
- - We will add two coils with addresses: 1 and 15. In field "Name" you can add names for variables.
+  - We will add two coils with addresses: 1 and 15. In field "Name" you can add names for variables.
  
  ![Adding cois 1 and 15](./gifs/added-coils-3.gif)
  
@@ -35,8 +39,8 @@
   ![Creating model](./gifs/create-model-5.gif)
   
   #### Create commands for controlling Switches. 
-   - SwitchA is a coil register with address: 1. SwitchB is a coil register with address: 15. Values can be 0 or 1.
-   - For setting 1, in the field "Payload", set `{"SwitchA": "true"}`. For setting 0, set `{"SwitchA": "false"}`.Similarly change commands for SwitchB.
+  - SwitchA is a coil register with address: 1. SwitchB is a coil register with address: 15. Values can be 0 or 1.
+  - For setting 1, in the field "Payload", set `{"SwitchA": "true"}`. For setting 0, set `{"SwitchA": "false"}`.Similarly change commands for SwitchB.
   ![Creating command for SwitchA](./gifs/create-switchA-6.gif)
   
   #### Create command for getting state of both switches.
