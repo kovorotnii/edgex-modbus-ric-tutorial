@@ -8,7 +8,7 @@
  
  - Use [docker-compose.yml](./docker-compose.yml) for launching Edgex services.
  
- - It's recommended to use http://modbuspal.sourceforge.net/ as a modbus emulator. The insrtuction below is based on it.
+ - It's recommended to use http://modbuspal.sourceforge.net/ as a modbus emulator. The instruction below is based on it.
 
 ### Launch emulator. Then add a slave.
 
@@ -53,6 +53,21 @@
    
   #### Create command for getting operation mode.
    ![Creating command for gettting operation mode](./gifs/get-operation-mode-9.gif)
+  
+  #### Create an object in the platform.
+   ![create-object-gif](./gifs/create-object.gif)
+   
+  #### How it should work.
+   ##### Testing switches.
+   - Check whether modbus emulator works.
+   - For controlling registers values press "Eye" icon in modbus slave section
+  ![slave-registers](./gifs/slave-registers.png) 
+  
+   - How emulator works.
+  ![testing swtiches](./gifs/test-switches-12.gif)
+  
+  ##### Testing operation mode
+  ![operation-mode](./gifs/test-operationMode-13.gif)
    
   
   
