@@ -7,9 +7,8 @@
  - Customize [configuration.toml](./configuration.toml) and [another.modbus.profile.yml](./another.modbus.profile.yml) according your device.
  
  - Use [docker-compose.yml](./docker-compose.yml) for launching Edgex services.
-
-### First of all download modbus emulator for simulating registers.
- - http://modbuspal.sourceforge.net/
+ 
+ - It's recommended to use http://modbuspal.sourceforge.net/ as a modbus emulator. The insrtuction below is based on it.
 
 ### Launch emulator. Then add a slave.
 
@@ -37,8 +36,7 @@
   
   #### Create commands for controlling Switches. 
    - SwitchA is a coil register with address: 1. SwitchB is a coil register with address: 15. Values can be 0 or 1.
-   - For setting 1, in the field "Payload", set `{"SwitchA": "true"}`. For setting 0, set `{"SwitchA": "fasle"}`
-   - This way you also can create controll command for SwitchB. Don't forget to change name!
+   - For setting 1, in the field "Payload", set `{"SwitchA": "true"}`. For setting 0, set `{"SwitchA": "false"}`.Similarly change commands for SwitchB.
   ![Creating command for SwitchA](./gifs/create-switchA-6.gif)
   
   #### Create command for getting state of both switches.
@@ -46,6 +44,16 @@
   ![Creating command for getting switches states](./gifs/get-switch-state-7.gif)
   
   
-  #### 
+  #### Create command for setting operation mode.
+   - Operation Mode is the holding register with address: 12.
+   - Current operation modes are described in [another.profile.modbus.yml](./another.modbus.profile.yml)
+   - To set Operation Mode, paste in "Payload" `{"OperationMode": "8"}`. This is "VAM Auto" mode.
+   
+   ![Creating command for setting operation mode](./gifs/set-operation-mode-8.gif)
+   
+  #### Create command for getting operation mode.
+   ![Creating command for gettting operation mode](./gifs/get-operation-mode-9.gif)
+   
+  
   
  
