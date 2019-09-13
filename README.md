@@ -41,6 +41,28 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   #### Create commands for controlling Switches. 
   - SwitchA is a coil register with address: 1. SwitchB is a coil register with address: 15. Values can be 0 or 1.
   - For setting 1, in the field "Payload", set `{"SwitchA": "true"}`. For setting 0, set `{"SwitchA": "false"}`.Similarly change commands for SwitchB.
+  - As you see, the main topic for commands is "Name" from "DeviceList"
+  ```toml
+  [[DeviceList]]
+  # Device name, will be used as a base MQTT topic
+  Name = "Modbus-TCP-test-device-11"
+  # Profile name, see another.modbus.profile.yml
+  Profile = "Another.Device.Modbus.Profile"
+  Description = "This device is a product for monitoring and controlling digital inputs and outputs over a LAN."
+  labels = [ "Air conditioner","modbus TCP" ]
+  [DeviceList.Protocols]
+    [DeviceList.Protocols.modbus-tcp]
+       # Modbusl slave ip addres
+       Address = "192.168.1.1"
+       Port = "502"
+       UnitID = "1"
+  [[DeviceList.AutoEvents]]
+    # After establishing registration, service will send every 20 seconds values of both switches to the platform 
+    Frequency = "20s"
+    OnChange = false
+    Resource = "Switch"
+
+  ```
   ![Creating command for SwitchA](./gifs/create-switchA-6.gif)
   
   #### Create command for getting state of both switches.
@@ -60,6 +82,31 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   
   #### Create an object in the platform.
    ![create-object-gif](./gifs/create-object.gif)
+   
+  #### Establish interaction between platform and modbus device.
+   - Add registration for estabglishing communication to the platform.
+   `curl -X POST -d '{                                       
+  "name":"modbus-tutorial-example-thenew11",
+  "addressable":{
+      "name":"Broker",
+      "protocol":"tcp",
+      "address":"192.168.2.199",
+      "port":1883,
+      "publisher":"modbus-edgex-11",
+      "topic":"mb-topic"
+  },
+  "format":"JSON",
+  "filter":{
+      "deviceIdentifiers":["Modbus-TCP-test-device-11"]
+  },
+  "enable":true,
+  "destination":"IOTCORE_TOPIC"
+}' http://localhost:48071/api/v1/registration
+`
+   - "address" is address of mqtt broker
+   - "publisher" is an ID of object in the platform
+   - "deviceIdentifiers" are names from configuration.toml
+   ![establish-interaction](./gifs/establish-interaction.gif)
    
   #### How it should work.
    ##### Testing switches.
