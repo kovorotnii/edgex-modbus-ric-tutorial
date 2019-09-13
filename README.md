@@ -72,7 +72,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   
   #### Create command for setting operation mode.
    - Operation Mode is the holding register with address: 12.
-   - Current operation modes are described in [another.profile.modbus.yml](./another.modbus.profile.yml)
+   - Current operation modes are described in [another.modbus.profile.yml](./another.modbus.profile.yml)
    - To set Operation Mode, paste in "Payload" `{"OperationMode": "8"}`. This is "VAM Auto" mode.
    
    ![Creating command for setting operation mode](./gifs/set-operation-mode-8.gif)
@@ -106,7 +106,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
 `
    - "address" is address of mqtt broker
    - "publisher" is an ID of object in the platform
-   - "deviceIdentifiers" are names from configuration.toml
+   - "deviceIdentifiers" are names of devices  from [configuration.toml](./configuration.toml)
    ![establish-interaction](./gifs/establish-interaction.gif)
    
   #### How it should work.
