@@ -1,4 +1,5 @@
-## edgex-modbus-ric-tutorial
+edgex-modbus-ric-tutorial
+=========================
 
 This tutorial will allow you to establish interaction between Rightech IoT Cloud platform sandbox https://sandbox.rightech.io/auth and EdgeX Foundry Modbus device service.
 
@@ -14,6 +15,8 @@ Prerequisites
  - Use [docker-compose.yml](./docker-compose.yml) for launching Edgex services.
  
  - It's recommended to use http://modbuspal.sourceforge.net/ as a modbus emulator. The instruction below is based on it.
+ 
+ - After setting up services, see [after-init-services.md](./after-init-services.md) for futher information. 
 
 Launch emulator. Then add a slave.
 ----------------------------------
