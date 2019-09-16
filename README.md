@@ -25,7 +25,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
 ![Adding holding register](./gifs/added-holding-register-2.gif)
 
   #### Add two coils.
-  - We will add two coils with addresses: 1 and 15. In field "Name" you can add names for variables.
+  - We will add two coils with addresses: 1 and 15. In field "Name" you can add names for variables. It doesn't affect on work, generally it will help you to understand which variable stands for current address.
  
  ![Adding cois 1 and 15](./gifs/added-coils-3.gif)
  
@@ -41,7 +41,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   #### Create commands for controlling Switches. 
   - SwitchA is a coil register with address: 1. SwitchB is a coil register with address: 15. Values can be 0 or 1.
   - For setting 1, in the field "Payload", set `{"SwitchA": "true"}`. For setting 0, set `{"SwitchA": "false"}`.Similarly change commands for SwitchB.
-  - As you see, the general topic for commands is "Name" from "DeviceList"
+  - As you see, the general topic for commands is "Name" from "DeviceList".
   ```toml
   [[DeviceList]]
   # Device name, will be used as a base MQTT topic
@@ -87,6 +87,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
    - By default locate all necessary files: `docker-compose.yml, configuration.toml, another.modbus.profile.yml` in the same folder. 
    - Run Edgex services. Execute `docker-compose up -d`. 
    - Check whether services are running by `docker-compose ps`.
+   - Edgex services UI will be available at `your-ip:4000`.
    - Add registration for establishing communication to the platform.
 
    ```shell: cURL
