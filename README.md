@@ -41,7 +41,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   #### Create commands for controlling Switches. 
   - SwitchA is a coil register with address: 1. SwitchB is a coil register with address: 15. Values can be 0 or 1.
   - For setting 1, in the field "Payload", set `{"SwitchA": "true"}`. For setting 0, set `{"SwitchA": "false"}`.Similarly change commands for SwitchB.
-  - As you see, the main topic for commands is "Name" from "DeviceList"
+  - As you see, the general topic for commands is "Name" from "DeviceList"
   ```toml
   [[DeviceList]]
   # Device name, will be used as a base MQTT topic
@@ -84,9 +84,13 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
    ![create-object-gif](./gifs/create-object.gif)
    
   #### Establish interaction between platform and modbus device.
-   - Add registration for estabglishing communication to the platform.
-   
-   `curl -X POST -d '{                                       
+   - By default locate all necessary files: `docker-compose.yml, configuration.toml, another.modbus.profile.yml` in the same folder. 
+   - Run Edgex services. Execute `docker-compose up -d`. 
+   - Check whether services are running by `docker-compose ps`.
+   - Add registration for establishing communication to the platform.
+
+   ```shell: cURL
+   curl -X POST -d '{                                       
   "name":"modbus-tutorial-example-thenew11",
   "addressable":{
       "name":"Broker",
@@ -103,7 +107,7 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   "enable":true,
   "destination":"IOTCORE_TOPIC"
 }' http://localhost:48071/api/v1/registration
-`
+```
    - "address" is address of mqtt broker
    - "publisher" is an ID of object in the platform
    - "deviceIdentifiers" are names of devices  from [configuration.toml](./configuration.toml)
