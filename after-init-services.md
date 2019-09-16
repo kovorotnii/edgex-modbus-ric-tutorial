@@ -68,19 +68,25 @@ Base commands for managing services.
    }
 ]
 ```
-  #### 2. Delete device registration, how to add, see https://github.com/kovorotniy/edgex-modbus-ric-tutorial#establish-interaction-between-platform-and-modbus-device. Examle of deleting "modbus-tutorial-example-thenew11" registration. Make:
+  #### 2. Delete device registration, how to add, see https://github.com/kovorotniy/edgex-modbus-ric-tutorial#establish-interaction-between-platform-and-modbus-device. 
+  Examle of deleting `modbus-tutorial-example-thenew11` registration. Make:
+  
   ```shell:curl 
   curl -X "DELETE"  http://localhost:48071/api/v1/registration/id/73b18bed-98c3-42a7-8cbf-0fb8b424f50b
   ```
   It should return "true"
   
-  #### 3. Delete device service, see [edgex-ui.png](./gifs/edgex-ui.png). Section: DeviceService. Example of deleting "edgex-device-modbus" Make:
+  #### 3. Delete device service, see [edgex-ui.png](./gifs/edgex-ui.png). Section: DeviceService.   
+  Example of deleting `edgex-device-modbus` Make:
+  
   ```shell:curl
   curl -X "DELETE" http://localhost:48071/api/v1/deviceservice/id/2675ba21-480c-4b14-8bb6-dd3c9266310a	
   ```
   It should return "true"
   
-  #### 4. Delete device service addressable. To check addressable, press "Magnifier" icon, then you will see addresaable id. Example of deleting addressable. Make: 
+  #### 4. Delete device service addressable. To check addressable, press "Magnifier" icon, then you will see addresaable id. 
+  Example of deleting addressable. Make: 
+  
   ```shell:curl
   curl -X "DELETE" http://localhost:48081/api/v1/addressable/id/3036f4b7-3db4-4906-b44d-af3ff8ea8cbe 
   ```
