@@ -2,7 +2,8 @@
 
 This tutorial will allow you to establish interaction between Rightech IoT Cloud platform sandbox https://sandbox.rightech.io/auth and EdgeX Foundry Modbus device service.
 
-### Prerequisites
+Prerequisites
+-------------
 
  - Get acquainted with EdgeX getting-started https://docs.edgexfoundry.org/Ch-GettingStartedUsers.html.
  
@@ -14,11 +15,13 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
  
  - It's recommended to use http://modbuspal.sourceforge.net/ as a modbus emulator. The instruction below is based on it.
 
-### Launch emulator. Then add a slave.
+Launch emulator. Then add a slave.
+----------------------------------
 
 ![Adding slave](./gifs/add-slave-1.gif)
 
-### Add registers to slave device.
+Add registers to slave device.
+------------------------------
   #### Add a holding register
  - We will add a holding register with address 12
  
@@ -28,14 +31,15 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   - We will add two coils with addresses: 1 and 15. In field "Name" you can add names for variables. It doesn't affect on work, generally it will help you to understand which variable stands for current address.
  
  ![Adding cois 1 and 15](./gifs/added-coils-3.gif)
- 
-  #### Run slave
+
+Run slave
+---------
   - The modbus emulator can be available at `pc-ip-address:502`
   
  ![Running slave](./gifs/running-slave-4.gif)
  
-  #### Create model
-  
+ Create model
+ ------------ 
   ![Creating model](./gifs/create-model-5.gif)
   
   #### Create commands for controlling Switches. 
@@ -83,7 +87,9 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
   #### Create an object in the platform.
    ![create-object-gif](./gifs/create-object.gif)
    
-  #### Establish interaction between platform and modbus device.
+ 
+ Establish interaction between platform and modbus device.
+ ---------------------------------------------------------
    - By default locate all necessary files: `docker-compose.yml, configuration.toml, another.modbus.profile.yml` in the same folder. 
    - Run Edgex services. Execute `docker-compose up -d`. 
    - Check whether services are running by `docker-compose ps`.
@@ -114,7 +120,8 @@ This tutorial will allow you to establish interaction between Rightech IoT Cloud
    - "deviceIdentifiers" are names of devices  from [configuration.toml](./configuration.toml)
    ![establish-interaction](./gifs/establish-interaction.gif)
    
-  #### How it should work.
+How it should work.
+-------------------
    ##### Testing switches.
    - Check whether modbus emulator works.
    - For controlling registers values press "Eye" icon in modbus slave section
