@@ -94,6 +94,7 @@ Run slave
  Establish interaction between platform and modbus device.
  ---------------------------------------------------------
    - By default locate all necessary files: `docker-compose.yml, configuration.toml, another.modbus.profile.yml` in the same folder. 
+   - Pull necessary images. Execute `docker-compose pull`.
    - Run Edgex services. Execute `docker-compose up -d`. 
    - Check whether services are running by `docker-compose ps`.
    - Edgex services UI will be available at `your-ip:4000`.
